@@ -1,0 +1,7 @@
+<template>
+    <template for:each={ownerVar} for:item="owner">
+        <p key={owner.Name}>
+            <c-parent owner-name={owner.Name} owner-role={owner.Role}></c-parent>
+        </p>
+    </template>
+</template> 

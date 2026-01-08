@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Welcome to Cosmic Calendar">
+        <div class="slds-p-horizontal_small">
+            <lightning-input
+                label="Your Name"
+                value={userName}
+                onchange={handleNameChange}>
+            </lightning-input>
+            <lightning-input
+                type="date"
+                value={userDate}
+                label="Select your birth date"
+                onchange={handleDateChange}>
+            </lightning-input>
+
+            <div class="slds-align_absolute-center">
+                <lightning-button
+                    label="Submit"
+                    variant="brand"
+                    class="slds-m-around_medium"
+                    onclick={zodiacFind}>
+                </lightning-button>
+                <lightning-button
+                    label="Refresh"
+                    variant="brand"
+                    class="slds-m-around_medium"
+                    onclick={resetForm}>
+                </lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+    <lightning-card title="Your Zodiac Sign" lwc:if={isShowing}>
+        <div class="slds-p-around_medium">
+            <h1>
+                {zodiacSign.emoji}
+                <b>{zodiacSign.sign}</b>
+            </h1>
+            <p>{zodiacSign.trait}</p>
+        </div>
+    </lightning-card>
+</template>

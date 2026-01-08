@@ -1,0 +1,44 @@
+<template>
+    <!-- <div class="slds-card slds-p-around_medium">
+        <h1>I am Child component</h1>
+        <p>This is my message : {message}</p>
+        <p>New Year is : {newYear}</p>
+
+        <lightning-input value={demo} onchange={funcs} label="Enter your name"></lightning-input>
+        <p>This is the value : {demo}</p>
+
+        <lightning-card class="slds-card" title="Getter & Setter">
+            <p class="slds-p-around_small">This is getter variable : {getVar1}</p>
+        </lightning-card>
+    </div> -->
+
+        <lightning-card  title="This is my Task List via for:each">
+            <p class="slds-p-horizontal_small">
+                <template class="slds-p-horizontal_medium" for:each={taskList} for:item="task">
+                    <p class="slds-p-around_small" key={task.taskId}>
+                        {task.taskName} => {task.taskStatus} 
+                    </p>
+                </template>
+            </p>
+            <p slot="footer">All the best keep it up!</p>
+        </lightning-card>
+
+        <lightning-card  title="This is my Task List via interator">
+            <p class="slds-p-horizontal_small">
+                <template class="slds-p-horizontal_medium" iterator:it={taskList}>
+                    <template lwc:if={it.first}>
+                        MOST IMPORTANT TASK IS : 
+                        {it.value.taskName} => {it.value.taskStatus}
+                    </template>
+                    <p class="slds-p-around_small" key={it.value.taskId}>
+                        {it.value.taskName} => {it.value.taskStatus} 
+                    </p>
+                    <template lwc:if={it.last}>
+                        LEAST IMPORTANT TASK IS : 
+                        {it.value.taskName} => {it.value.taskStatus}
+                    </template>
+                </template>
+            </p>
+            <p slot="footer">All the best keep it up!</p>
+        </lightning-card>
+</template>
